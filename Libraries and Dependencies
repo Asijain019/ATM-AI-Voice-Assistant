@@ -1,0 +1,59 @@
+# Primary Language
+Python 3.6+
+
+# Libraries and Dependencies
+speech_recognition: For converting spoken language into text
+pyttsx3: Cross-platform text-to-speech engine
+gTTS (Google Text-to-Speech): For high-quality Hindi voice synthesis
+pygame (optional): For improved audio playback handling
+playsound: Alternative audio playback system
+
+# Standard libraries:
+os: File and directory operations
+time: Time-related functions and delays
+platform: System platform detection
+tempfile: Secure temporary file creation
+re: Regular expression operations
+uuid: Unique identifier generation
+io: Input/output stream operations
+getpass: Secure password input handling
+datetime: Date and time handling
+
+# Technical Features
+Dual Voice System: Uses pyttsx3 for English and gTTS for Hindi speech synthesis
+Intelligent Speech Recognition: Implements Google's speech recognition with ambient noise adjustment
+Hinglish Command Processing: Natural language understanding for both English and Hindi
+Secure Input Handling: Masked PIN entry and secure input methods
+State Machine Architecture: Clean separation of application states for maintainable code
+Context-Aware Number Processing: Advanced extraction of numerical commands from speech
+Temporary File Management: Secure creation and deletion of speech files
+Multi-Platform Compatibility: Adapts to Windows, macOS, and Linux environments
+
+# Implementation Highlights
+
+Object-Oriented Design: Encapsulates ATM functionality in a modular class structure
+Error Handling: Comprehensive exception management for robust operation
+Multilingual Dictionary: Structured message storage for easy language switching
+Fallback Systems: Multiple layers of fallback for both speech recognition and audio playback
+Security Focus: Sensitive information is never spoken aloud, only displayed on screen
+
+# Core Functionality
+
+Language selection (English/Hindi)
+Voice assistance toggle
+Card detection simulation
+Secure PIN authentication
+Cash withdrawal processing
+Balance inquiry
+PIN change management
+Mini statement generation
+Fund transfer capability
+Interactive help system
+
+# Future Development Areas
+
+Additional language support
+Offline speech recognition
+Enhanced accessibility features
+UI integration with voice system
+Expanded banking operations
