@@ -196,7 +196,7 @@ class ATMVoiceAssistant:
             
             # Speak English first, then Hindi
             self.speak_english(eng_message)
-            time.sleep(0.5)  # Short pause between languages
+            time.sleep(0.3)  # Short pause between languages
             self.speak_hindi(hindi_message)
             
         elif self.language:
@@ -549,11 +549,11 @@ class ATMVoiceAssistant:
             # Extended keyword detection
             withdraw_keywords = ["withdraw", "cash", "money", "take", "get", "paise", "रुपए", "निकालना"]
             balance_keywords = ["balance", "check", "see", "how much", "kitna", "inquire", "बैलेंस", "जांच"]
-            pin_change_keywords = ["pin change", "change pin", "new pin", "पिन बदलें", "नया पिन"]
+            pin_change_keywords = ["pin change", "change pin", "new pin", "पिन बदलें", "नया पिन" , "change"]
             mini_statement_keywords = ["statement", "history", "mini", "transactions", "मिनी", "लेनदेन"]
             transfer_keywords = ["transfer", "send", "भेजना", "ट्रांसफर", "स्थानांतरण"]
             help_keywords = ["help", "support", "मदद", "सहायता"]
-            exit_keywords = ["exit", "quit", "बाहर", "समाप्त", "निकलना"]
+            exit_keywords = ["exit", "quit", "बाहर", "समाप्त", "निकलना" , "sath" , "bhar" , "nikalne "]
             
             if selection == 1 or processed_input == "withdraw" or any(keyword in user_input.lower() for keyword in withdraw_keywords):
                 self.current_state = "withdraw_amount"
@@ -587,7 +587,7 @@ class ATMVoiceAssistant:
             if amount_input > 0 and amount_input <= self.account_balance:
                 self.withdrawal_amount = amount_input
                 self.speak("processing")
-                time.sleep(2)  # Simulate processing time
+                time.sleep(1)  # Simulate processing time
                 
                 # Update account balance
                 self.account_balance -= self.withdrawal_amount
@@ -629,7 +629,7 @@ class ATMVoiceAssistant:
         print(f"Current Balance: ₹{self.account_balance}")
         print(f"{'=' * 40}\n")
         
-        time.sleep(3)  # Give user time to read
+        time.sleep(1)  # Give user time to read
         self.current_state = "main_menu"
         return True
     
@@ -642,7 +642,7 @@ class ATMVoiceAssistant:
         
         if new_pin and len(new_pin) == 4 and new_pin.isdigit():
             self.speak("processing")
-            time.sleep(2)  # Simulate processing
+            time.sleep(1)  # Simulate processing
             
             # In a real app, this would update the PIN in a secure database
             self.speak("pin_changed")
@@ -690,7 +690,7 @@ class ATMVoiceAssistant:
             if amount_input and isinstance(amount_input, int):
                 if amount_input > 0 and amount_input <= self.account_balance:
                     self.speak("processing")
-                    time.sleep(2)  # Simulate processing
+                    time.sleep(1)  # Simulate processing
                     
                     # Update balance and record transaction
                     self.account_balance -= amount_input
@@ -721,11 +721,11 @@ class ATMVoiceAssistant:
             
             if selection == 1:
                 self.speak("pin_help")
-                time.sleep(2)
+                time.sleep(1)
                 self.current_state = "main_menu"
             elif selection == 2:
                 self.speak("transaction_help")
-                time.sleep(2)
+                time.sleep(1)
                 self.current_state = "main_menu"
             elif selection == 3:
                 self.current_state = "main_menu"
@@ -794,9 +794,7 @@ class ATMVoiceAssistant:
                 else:
                     print(f"Error: No handler for state '{self.current_state}'")
                     self.current_state = "welcome"
-                
-                time.sleep(0.5)  # Small delay between states for better user experience
-        
+                      
         except KeyboardInterrupt:
             print("\nATM session terminated by user.")
         except Exception as e:
